@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos en Tiempo Real</title>
+    <script src="/socket.io/socket.io.js"></script> <!-- Cliente de Socket.IO -->
+</head>
+<body>
+    <h2>Lista de Productos en Tiempo Real</h2>
+
+
+    <!-- Formulario para agregar un producto -->
+    <h3>Agregar un nuevo producto</h3>
+    <form id="product-form">
+        <input type="text" id="title" placeholder="Título" required />
+        <input type="text" id="description" placeholder="Descripción" required />
+        <input type="text" id="code" placeholder="Código" required />
+        <input type="number" id="price" placeholder="Precio" required />
+        <input type="number" id="stock" placeholder="Stock" required />
+        <input type="text" id="category" placeholder="Categoría" required />
+        <button type="submit">Agregar Producto</button>
+    </form>
+
+    <ul id="product-list">
+        {{#each products}}
+        <li id="product-{{this.id}}">
+            <strong>{{this.title}}</strong> - Precio: {{this.price}} - Categoría: {{this.category}}
+        </li>
+        {{/each}}
+    </ul>
+
+
+    <script>
+        const socket = io();
+        document.getElementById('product-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newProduct = {
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                code: document.getElementById('code').value,
+                price: parseFloat(document.getElementById('price').value),
+                stock: parseInt(document.getElementById('stock').value),
+                category: document.getElementById('category').value,
+            };
+            socket.emit('nuevoProducto', newProduct);
+            e.target.reset();
+        });
+
+        socket.on('productosActualizados', (productos) => {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Limpiar lista
+            productos.forEach(product => {
+                const li = document.createElement('li');
+                li.id = `product-${product.id}`;
+                li.innerHTML = `<strong>${product.title}</strong> - Precio: ${product.price} - Categoría: ${product.category}`;
+                productList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

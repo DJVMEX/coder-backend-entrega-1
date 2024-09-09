@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "express": "^4.19.2",
+    "express-handlebars": "^8.0.1",
     "fs": "^0.0.1-security",
     "nodejs": "^0.0.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "socket.io": "^4.7.5"
   },
   "name": "curso-1---entrega-1",
   "version": "1.0.0",

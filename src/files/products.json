@@ -37,5 +37,60 @@
     "stock": 1,
     "category": "Confort",
     "thumbnails": []
+  },
+  {
+    "id": 1,
+    "title": "dsada",
+    "description": "sdasdas",
+    "code": "dasd",
+    "price": 4324,
+    "status": true,
+    "stock": 4,
+    "category": "d",
+    "thumbnails": []
+  },
+  {
+    "id": 5,
+    "title": "321",
+    "description": "123",
+    "code": "321",
+    "price": 123,
+    "status": true,
+    "stock": 321,
+    "category": "123",
+    "thumbnails": []
+  },
+  {
+    "id": 6,
+    "title": "das",
+    "description": "das",
+    "code": "das",
+    "price": 4,
+    "status": true,
+    "stock": 444,
+    "category": "das",
+    "thumbnails": []
+  },
+  {
+    "id": 7,
+    "title": "das",
+    "description": "432",
+    "code": "423",
+    "price": 234,
+    "status": true,
+    "stock": 234,
+    "category": "234",
+    "thumbnails": []
+  },
+  {
+    "id": 8,
+    "title": "as",
+    "description": "dsa",
+    "code": "43",
+    "price": 43,
+    "status": true,
+    "stock": 44,
+    "category": "4",
+    "thumbnails": []
   }
 ]
